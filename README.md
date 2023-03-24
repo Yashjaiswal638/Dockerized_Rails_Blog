@@ -1,5 +1,10 @@
 # README
 
+DOCKER ASSIGNMENT
+
+ADDED DOCKERFILE
+ADDED .DOCKERIGNORE FILE
+
 Final Assignment for Ruby on Rails training
 
 * Models - Users, Articles
