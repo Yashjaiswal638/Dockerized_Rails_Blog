@@ -1,0 +1,48 @@
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><%= link_to 'BLOG', root_path %></li>
+  <li><%= link_to 'View Articles', articles_path %></li>
+  <li><%= link_to 'View Users', users_path %></li>
+  <% if logged_in? %>
+    <li><%= link_to 'Create Article', new_article_path %></li>
+    <li><%= link_to 'View profile', user_path(current_user.id) %></li>
+    <li><%= link_to 'Edit profile', edit_user_path(current_user.id) %></li>
+    <li><%= link_to 'Delete profile', user_path(current_user.id), method: :delete, data: {turbo_confirm: "Are you Sure?", turbo_method: :delete} %></li>
+    <li><%= button_to 'Logout', logout_path, method: :delete %></li>
+  <% else %>
+    <li><%= link_to 'Log in', login_path %></li>
+    <li><%= link_to "Sign up!", signup_path %></li>
+  <% end %>
+</ul>
+
+</body>
+</html>

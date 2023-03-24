@@ -1,0 +1,28 @@
+<table>
+
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Written By</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+
+    <tr>
+      <td> <%= article.title %> </td>
+      <td> <%= article.description %> </td>
+      <td> <%= link_to article.user.username, user_path(article.user) %> </td>
+      <td><%= link_to 'Show', article_path(article.id) %></td>
+      <% if logged_in? && article.user == current_user %>
+        <td><%= link_to 'Edit', edit_article_path(article.id) %></td>
+        <td><%= link_to 'Delete', article_path(article.id), method: :delete, data: {turbo_confirm: "Are you Sure?", turbo_method: :delete} %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>

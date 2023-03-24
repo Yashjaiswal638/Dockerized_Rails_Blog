@@ -1,0 +1,17 @@
+<h1>Listing all articles</h1>
+
+
+<div>
+  <%= will_paginate @articles, :container => false %>
+</div>
+
+
+<%= render 'article' %>
+
+<div>
+  <%= will_paginate @articles, :container => false %>
+</div>
+
+<p>
+<%= link_to 'Create New Article', new_article_path %>
+</p>

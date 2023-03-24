@@ -1,0 +1,11 @@
+<h1> <%= @user.username %>'s profile </h1>
+<img src= <%= @user.avatar %> alt=""/>
+
+
+<% if logged_in? && @user == current_user %>
+    <div class = 'text-center mt-4'><%= link_to 'Edit your profile', edit_user_path(@user), class: "btn btn-outline-info" %></div>
+<% end %>
+
+<h1>Articles</h1>
+
+<%= render 'articles/article' %>
